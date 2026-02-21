@@ -1,4 +1,5 @@
 package com.vaibhav.payment_api.model;
+import com.vaibhav.payment_api.exception.PaymentException;
 
 public abstract class Payment {
     protected double amount;

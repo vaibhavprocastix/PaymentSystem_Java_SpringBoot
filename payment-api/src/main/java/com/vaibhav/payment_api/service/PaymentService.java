@@ -1,7 +1,10 @@
 package com.vaibhav.payment_api.service;
 
 import com.vaibhav.payment_api.exception.PaymentException;
+import com.vaibhav.payment_api.model.Payment;
+import org.springframework.stereotype.Service;
 
+@Service
 public class PaymentService {
     public String executePayment(Payment payment)throws PaymentException {
         try{
