@@ -3,6 +3,7 @@ package com.vaibhav.payment_api.model;
 import com.vaibhav.payment_api.model.request.*;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import jakarta.validation.constraints.*;
 
 @JsonTypeInfo(
         use = JsonTypeInfo.Id.NAME,
@@ -15,7 +16,9 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 })
 
 public abstract class PaymentRequest {
-    private double amount;
+    @NotNull(message = "Amount is required")
+    @Min(value = 1, message = "Amount must be greater than zero")
+    protected double amount;
 
     public double getAmount() { return amount; }
 

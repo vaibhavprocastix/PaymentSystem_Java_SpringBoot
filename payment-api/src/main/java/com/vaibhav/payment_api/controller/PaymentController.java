@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.vaibhav.payment_api.exception.PaymentException;
 import com.vaibhav.payment_api.service.PaymentService;
 import com.vaibhav.payment_api.model.*;
+import jakarta.validation.Valid;
 // import org.springframework.web.bind.annotation.RequestParam;
 import com.vaibhav.payment_api.service.PaymentFactory;
 
@@ -62,7 +63,7 @@ public class PaymentController {
     }
 
     @PostMapping
-    public String makePayment(@RequestBody PaymentRequest request) throws PaymentException {
+    public String makePayment(@Valid @RequestBody PaymentRequest request) throws PaymentException {
         Payment payment = paymentFactory.createPayment(request);
         return paymentService.executePayment(payment);
     }
